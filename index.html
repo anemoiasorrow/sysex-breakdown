@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operator Dictionary Input</title>
+    <title>Operator Dictionary</title>
 </head>
 <body>
+    <h1>Operator Dictionary</h1>
+
     <form method="post">
         <label for="Attack Rate">Attack Rate:</label>
         <input type="number" name="Attack Rate" step="0.01"><br>
@@ -33,5 +35,22 @@
 
         <input type="submit" value="Submit">
     </form>
+
+    {% if operator_dict %}
+    <h2>Operator Dictionary</h2>
+    <table>
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+        {% for key, value in operator_dict.items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
 </body>
 </html>
+
